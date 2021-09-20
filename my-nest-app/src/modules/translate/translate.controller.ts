@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { TranslateService } from './translate.service';
 
 @Controller('translate')
@@ -6,9 +6,9 @@ export class TranslateController {
   constructor(private service: TranslateService) {}
 
   @Get('/')
-  public async index() {
+  public async index(@Query('word') word: string) {
     return {
-      name: await this.service.handle('không thể', 2),
+      data: await this.service.handle(word, 1),
     };
   }
 }

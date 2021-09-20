@@ -46,6 +46,7 @@ export class Crawl {
               .querySelector('.slide_content')
               .querySelectorAll('.green.bold.margin25.m-top15'),
           ).map((item) => item.textContent),
+          content: document.querySelector('#content_selectable').innerHTML,
         };
       });
     } else {
