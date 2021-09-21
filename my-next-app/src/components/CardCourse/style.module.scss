@@ -1,0 +1,15 @@
+.image_card {
+  @apply w-full h-40  overflow-hidden;
+  z-index: 99;
+
+  transition: all .4s ease-in-out;
+
+
+  &:hover img {
+    transform: scale(1.1);
+    transition: all .4s ease-in-out;
+    z-index: 0;
+  }
+
+
+}
