@@ -4,6 +4,7 @@ import Notification from '@src/components/Notifcation';
 import { Provider } from 'react-redux';
 import { store } from '@src/apps/store';
 import { QueryClient, QueryClientProvider, useQueryClient } from 'react-query';
+import 'tailwindcss/tailwind.css'
 
 const queryClient = new QueryClient();
 
