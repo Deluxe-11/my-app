@@ -21,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/v1/login', [\App\Http\Controllers\API\AuthController::class, 'login']);
 Route::get('/v1/me', [\App\Http\Controllers\API\AuthController::class, 'me'])->middleware('jwt');
+
+Route::get('/v1/courses/{id}', [\App\Http\Controllers\API\CourseController::class, 'show']);
+Route::get('/v1/lessons/{id}', [\App\Http\Controllers\API\LessonController::class, 'show']);

@@ -34,6 +34,14 @@ trait Response
         ], ResponseAlias::HTTP_BAD_REQUEST);
     }
 
+    public function responseErrorNotFound($message): \Illuminate\Http\JsonResponse
+    {
+        return response()->json([
+            'data' => null,
+            'message' => $message
+        ], ResponseAlias::HTTP_NOT_FOUND);
+    }
+
 //    public function responseWithToken(string $token): \Illuminate\Http\JsonResponse
 //    {
 //        return $this->response([
