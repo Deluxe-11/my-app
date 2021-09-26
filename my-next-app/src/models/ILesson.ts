@@ -1,3 +1,5 @@
+import { IComment } from '@src/models/IComment';
+
 export declare interface ILesson {
   id: number;
   name: string;
@@ -10,4 +12,5 @@ export declare interface ILesson {
   created_at: string;
   updated_at: string;
   deleted_at: string;
+  comments?: IComment[];
 }

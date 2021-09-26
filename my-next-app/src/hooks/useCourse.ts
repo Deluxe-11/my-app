@@ -12,9 +12,7 @@ export default function useCourse(id: string) {
       return response.data.data;
     },
     {
-      onSuccess(data) {
-        console.log(data);
-      }
+      onSuccess(data) {}
     }
   );
 }

@@ -16,6 +16,7 @@ import { AxiosError, AxiosResponse } from 'axios';
 import { Response } from '@src/types/Response';
 import { fetchLogin } from '@src/features/auth/services';
 import { useRouter } from 'next/router';
+import { setLoggedIn } from '@src/features/auth/slice';
 
 function PageAuthLogin() {
   const {
@@ -39,6 +40,14 @@ function PageAuthLogin() {
     LoginForm
   >('login', (data) => fetchLogin(data), {
     onSuccess(response) {
+      dispatch(
+        setLoggedIn({
+          isLoggedIn: true,
+          user: response.data.data.user
+        })
+      );
+      localStorage.setItem('token', response.data.data.token);
+
       history.push('/').then((r) => {
         dispatch(
           showNotification({
@@ -58,7 +67,6 @@ function PageAuthLogin() {
 
   return (
     <div>
-
       <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>

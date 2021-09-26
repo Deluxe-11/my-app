@@ -1,44 +1,45 @@
-import React, {useCallback} from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import VideoLesson from "@src/features/lesson/components/VideoLesson";
+import VideoLesson from '@src/features/lesson/components/VideoLesson';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-
+import TabLesson from '@src/features/lesson/components/TabLesson';
 
 const ContentWrapper = styled.div`
   width: 75%;
-  height: 100%;
-  overflow-y: auto;
+  height: 100vh;
+  overflow-y: scroll;
   @media (max-width: 992px) {
     width: 100%;
   }
-`
+`;
 
 interface ContentLessonProp {
-    url: string
+  url: string;
 }
 
-function ContentLesson({url}: ContentLessonProp) {
+function ContentLesson({ url }: ContentLessonProp) {
+  const renderVideoLesson = () => <VideoLesson url={url} />;
 
-    const renderVideoLesson = () => <VideoLesson url={url}/>;
+  return (
+    <ContentWrapper>
+      {/*{renderVideoLesson()}*/}
 
-    return (
-        <ContentWrapper>
-            {renderVideoLesson()}
-            {/*<ContentLessonTab/>*/}
+      <div
+      // className={'sticky top-0 z-40'}
+      >
+        <VideoLesson url={url} />
+      </div>
 
-            <Box sx={{borderBottom: 1, borderColor: 'divider'}}>
-                <Tabs aria-label="basic tabs example">
-                    <Tab label="Item One"/>
-                    <Tab label="Item Two"/>
-                    <Tab label="Item Three"/>
-                </Tabs>
-            </Box>
+      <div>
+        <TabLesson />
+      </div>
 
-        </ContentWrapper>
-    )
+      {/*<ContentLessonTab/>*/}
+    </ContentWrapper>
+  );
 }
 
 export default ContentLesson;

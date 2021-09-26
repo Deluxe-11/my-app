@@ -10,6 +10,9 @@ class LessonController extends Controller
 {
     public function show($id)
     {
-        return $this->response(Lesson::find($id));
+        $lesson = Lesson::find($id);
+        $lesson->comments = $lesson->comments()->orderBy('created_at','desc')->get();
+
+        return $this->response($lesson);
     }
 }

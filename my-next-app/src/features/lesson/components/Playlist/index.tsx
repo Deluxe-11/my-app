@@ -13,7 +13,8 @@ const PlaylistWrapper = styled.div<PlaylistWrapperProp>`
   overflow-y: auto;
   height: 100%;
   box-sizing: border-box;
-
+  position: fixed;
+  margin-left: 75%;
   @media (max-width: 992px) {
     width: ${(props) => (props.width !== 100 ? 0 : '100%')};
   }

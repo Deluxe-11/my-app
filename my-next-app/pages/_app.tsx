@@ -1,10 +1,12 @@
 import type { AppProps } from 'next/app';
 import '../src/styles/root.scss';
-import Notification from '@src/components/Notifcation';
 import { Provider } from 'react-redux';
 import { store } from '@src/apps/store';
-import { QueryClient, QueryClientProvider, useQueryClient } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import 'tailwindcss/tailwind.css';
+import Bootstrap from '@src/Bootstrap';
+import { AppProvider } from '@src/context/useAppContext';
+import { io } from 'socket.io-client';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,8 +21,14 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
-          <Notification />
-          <Component {...pageProps} />
+          <AppProvider
+            value={{
+              socket: io('http://localhost:3333')
+            }}
+          >
+            <Bootstrap />
+            <Component {...pageProps} />
+          </AppProvider>
         </Provider>
       </QueryClientProvider>
     </>
