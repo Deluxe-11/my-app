@@ -6,8 +6,10 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <div>
-        <div className="flex justify-center mt-10">
-          <CardCourse />
+        <div>
+          <div className="flex justify-center mt-10">
+            <CardCourse />
+          </div>
         </div>
       </div>
     </Layout>
