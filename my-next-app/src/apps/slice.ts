@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { io, Socket } from 'socket.io-client';
 
-type typeAlert = 'success' | 'error';
+type typeAlert = 'success' | 'error' | 'info';
 
 interface AppSlice {
   notification: {

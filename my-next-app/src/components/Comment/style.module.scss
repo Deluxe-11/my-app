@@ -1,0 +1,12 @@
+.emoji {
+  display: none;
+  width: 20%;
+}
+
+
+.like:hover {
+  @apply cursor-pointer;
+  & > .emoji {
+    display: block;
+  }
+}

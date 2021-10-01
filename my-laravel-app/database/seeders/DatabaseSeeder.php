@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Course;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -17,11 +18,13 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        User::create([
+        $user = User::create([
             'name' => 'Tuan',
             'email' => 'devpro2001@gmail.com',
             'password' => Hash::make('java2001')
         ]);
+
+        $user->courses()->attach([1,2,3,4,5,6,7,8,9,10]);
 
         User::create([
             'name' => 'Tuan',
@@ -29,6 +32,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin123')
         ]);
 
+
+
+//        Course::factory(10)->create();
+        $this->call([
+            CourseSeeder::class,
+            LessonSeeder::class
+        ]);
 
 
     }
