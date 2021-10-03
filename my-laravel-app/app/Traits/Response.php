@@ -16,13 +16,14 @@ trait Response
 
     public function responseErrorServer($message): \Illuminate\Http\JsonResponse
     {
-        return $this->response([
-            'data' => [],
-            'message' => $message
-        ], ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
+//        return $this->response([
+//            'data' => [],
+//            'message' => $message
+//        ], ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
+        return $this->response([], $message, ResponseAlias::HTTP_INTERNAL_SERVER_ERROR);
     }
 
-    public function responseErrorBadRequest($message): \Illuminate\Http\JsonResponse
+    public function responseErrorBadRequest($message, $error = []): \Illuminate\Http\JsonResponse
     {
 //        return $this->response([
 //            'data' => [],
@@ -30,7 +31,8 @@ trait Response
 //        ], ResponseAlias::HTTP_BAD_REQUEST);
         return response()->json([
             'data' => null,
-            'message' => $message
+            'message' => $message,
+            'error' => $error
         ], ResponseAlias::HTTP_BAD_REQUEST);
     }
 
