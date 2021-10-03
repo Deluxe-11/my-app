@@ -15,6 +15,9 @@ class CreateCompoundQuestionsTable extends Migration
     {
         Schema::create('compound_questions', function (Blueprint $table) {
             $table->id();
+            $table->string('sentences');
+            $table->json('position');
+            $table->json('words');
             $table->timestamps();
         });
     }
