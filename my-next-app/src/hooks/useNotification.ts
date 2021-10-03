@@ -18,12 +18,21 @@ export default function useNotification(
           })
         );
       },
-      primary(title: string, description: string) {
+      primary(title: string, description: string = '') {
         dispatch(
           showNotification({
             title,
             description,
             type: 'info'
+          })
+        );
+      },
+      error(title: string, description: string = '') {
+        dispatch(
+          showNotification({
+            title,
+            description,
+            type: 'error'
           })
         );
       }

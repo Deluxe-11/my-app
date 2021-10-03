@@ -21,6 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/v1/login', [\App\Http\Controllers\API\AuthController::class, 'login']);
 
+Route::group(['prefix' => '/v1'], function () {
+    Route::post('/register', [\App\Http\Controllers\API\AuthController::class, 'register']);
+});
+
 Route::group(['middleware' => 'jwt'], function () {
     Route::get('/v1/me', [\App\Http\Controllers\API\AuthController::class, 'me']);
     Route::post('/v1/comments', [\App\Http\Controllers\API\CommentController::class, 'store']);
