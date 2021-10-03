@@ -9,7 +9,7 @@ export default function useNotification(
 
   if (type === 'snackbar') {
     return {
-      success(title: string, description: string) {
+      success(title: string, description: string = '') {
         dispatch(
           showNotification({
             title,

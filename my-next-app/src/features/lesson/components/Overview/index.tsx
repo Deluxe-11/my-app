@@ -74,7 +74,7 @@ function Overview() {
             </Button>
             <Button
               className={'ml-6'}
-              disabled={!watch('content').trim()}
+              disabled={!watch('content')?.trim()}
               type={'submit'}
               color={'primary'}
               variant={'contained'}
