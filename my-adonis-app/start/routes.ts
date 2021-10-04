@@ -22,10 +22,9 @@ import Route from '@ioc:Adonis/Core/Route'
 import Redis from '@ioc:Adonis/Addons/Redis'
 
 Route.get('/', async () => {
+  const value = await Redis.get('myapp_database_name')
 
-const value = await Redis.get('myapp_database_name')
-console.log(value);
   return { hello: 'world' }
 })
 
-Route.get('/word','WordsController.show');
+Route.get('/word/:word', 'WordsController.show')

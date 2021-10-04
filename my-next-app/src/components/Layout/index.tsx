@@ -1,14 +1,14 @@
 import styles from './style.module.scss';
 
 interface Prop {
-  children?: JSX.Element;
+  children?: JSX.Element | JSX.Element[];
 }
 
 function Layout({ children }: Prop) {
   return (
     <div>
-      <div className="h-screen w-screen flex bg-gray-200">
-        <div className="bg-red-500 w-20 h-screen">
+      <div className="min-h-screen bg-red-500 h-full w-screen flex ">
+        <div className="0 w-20 min-h-screen h-full">
           <ul>
             <li>Home</li>
           </ul>

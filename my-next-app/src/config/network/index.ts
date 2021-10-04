@@ -3,6 +3,12 @@ import { refresh } from '@src/services';
 
 const mainAPI = axios.create();
 
+const nodeAPI = axios.create();
+
+nodeAPI.defaults.baseURL = 'http://localhost:3333';
+
+export { nodeAPI };
+
 mainAPI.defaults.baseURL =
   process.env.NEXT_PUBLIC_BASE_URL_LARAVEL || 'http://127.0.0.1:8000';
 

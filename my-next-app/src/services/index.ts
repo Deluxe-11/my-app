@@ -1,4 +1,4 @@
-import mainAPI from '@src/config/network';
+import mainAPI, { nodeAPI } from '@src/config/network';
 import { IComment } from '@src/models/IComment';
 
 export const fetchCourse = (id: string) => {
@@ -15,3 +15,7 @@ export const fetchLesson = (id: string) => mainAPI.get(`/api/v1/lessons/${id}`);
 
 export const fetchAddComment = (comment: IComment) =>
   mainAPI.post('/api/v1/comments', comment);
+
+export const fetchSearchWordDictionary = (word: string) => {
+  return nodeAPI.get(`/word/${word}`);
+};
