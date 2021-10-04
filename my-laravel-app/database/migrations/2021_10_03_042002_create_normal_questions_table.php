@@ -15,7 +15,7 @@ class CreateNormalQuestionsTable extends Migration
     {
         Schema::create('normal_questions', function (Blueprint $table) {
             $table->id();
-            $table->json('questions');
+            $table->longText('questions');
             $table->json('answers');
             $table->json('correct_answers');
             $table->timestamps();

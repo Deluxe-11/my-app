@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('java2001')
         ]);
 
-        $user->courses()->attach([1,2,3,4,5,6,7,8,9,10]);
+        $user->courses()->attach([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
         User::create([
             'name' => 'Tuan',
@@ -33,11 +33,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-
 //        Course::factory(10)->create();
         $this->call([
             CourseSeeder::class,
-            LessonSeeder::class
+            LessonSeeder::class,
+            CategorySeeder::class
         ]);
 
 

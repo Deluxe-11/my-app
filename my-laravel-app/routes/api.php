@@ -33,3 +33,8 @@ Route::get('/v1/refresh', [\App\Http\Controllers\API\AuthController::class, 'ref
 
 Route::get('/v1/courses/{id}', [\App\Http\Controllers\API\CourseController::class, 'show']);
 Route::get('/v1/lessons/{id}', [\App\Http\Controllers\API\LessonController::class, 'show']);
+
+
+Route::group(['prefix' => '/backend'], function () {
+    Route::get('/v1/categories', [\App\Http\Controllers\Backend\CategoryController::class, 'index']);
+});
